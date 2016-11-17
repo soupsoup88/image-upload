@@ -9,6 +9,7 @@ photoAlbumServices.factory('album', ['$rootScope', '$resource', 'cloudinary',
     var url = cloudinary.url('myphotoalbum', {format: 'json', type: 'list'});
     //cache bust
     url = url + "?" + Math.ceil(new Date().getTime()/1000);
+      console.log(url);
     return $resource(url, {}, {
       photos: {method:'GET', isArray:false}
     });
